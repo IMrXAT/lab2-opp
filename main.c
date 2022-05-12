@@ -77,9 +77,9 @@ void algorithm(double* matrix, double* vectorX, double* vectorB){
 
     double normVectorB = vectorNorm(vectorB);
     while(isFinish(vectorDiff, normVectorB) == 1){
-        mulVectorOnConst(vectorDiff, vectorDiff);
-        subtractionVectors(vectorX, vectorDiff, vectorX);
-        makeVectorDiff(matrix, vectorX, vectorB, vectorDiff);
+        mulVectorOnConst(vectorDiff, vectorDiff); // t(Ax-b)
+        subtractionVectors(vectorX, vectorDiff, vectorX); // x_n+1 = x_n - t(Ax-b)
+        makeVectorDiff(matrix, vectorX, vectorB, vectorDiff); // vectorDiff == (Ax_n+1-b)
     }
     free(vectorDiff);
 }
